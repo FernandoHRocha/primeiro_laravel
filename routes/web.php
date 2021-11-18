@@ -15,18 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('posts', [
         'posts' => Post::all()
     ]);
 });
 
 Route::get('posts/{post}', function ($slug) {
-    
-    //Get the file of the post from the model Post
-    $post = Post::find($slug);
 
     //Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
     return view('post', [
-        'post' => $post
+        'post' => Post::find($slug)
     ]);
 })->where('post', '[A-z_\-]+');
