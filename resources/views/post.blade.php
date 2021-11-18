@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/app.css">
     <script src="js/app.js"></script>
-    <title>Larapio</title>
 </head>
 <body>
-    <h1>Fernando | <strong>Publicações</strong></h1>
+    <h1>Fernando  <strong>Publicações</strong></h1>
     <article>
-        <h2><a href="/post">Primeira Publicação</a></h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in deleniti reiciendis repudiandae, blanditiis culpa iure. Perferendis quo perspiciatis non similique officiis, libero voluptatibus maxime id tempora cum. Doloribus, perspiciatis!
-        </p>
+        <?= $post; ?>
     </article>
     <a href="/">Voltar</a>
 </body>
