@@ -22,6 +22,7 @@ a {
 }
 
 p {
+    text-align: justify;
     line-height: 1.6;
 }
 
@@ -29,4 +30,10 @@ article + article {
     margin-top: 3rem;
     padding-top: 3rem;
     border-top: 1px solid #c5c5c5;
+}
+.impar {
+    text-align: right;
+}
+.par {
+    text-align: left;
 }

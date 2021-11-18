@@ -11,10 +11,10 @@
     <h1>Fernando  <strong>Publicações</strong></h1>
     <article>
         <h2>
-            <?= $post->title; ?>
+            {{ $post->title }}
         </h2>
         <div>
-            <?= $post->body ?>
+            {!! $post->body !!}
         </div>
     </article>
     <a href="/">Voltar</a>

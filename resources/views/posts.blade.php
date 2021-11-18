@@ -10,18 +10,18 @@
 </head>
 <body>
     <h1>Fernando <strong>Publicações</strong></h1>
-    <?php foreach ($posts as $post) : ?>
-        <article>
+    @foreach ($posts as $post)
+        <article class="{{$loop->even ? 'impar' : 'par'}}">
             <h2>
                 <a href="/posts/<?= $post->slug; ?>">
-                    <?= $post->title; ?>
+                    {{$post->title}}
                 </a>
             </h2>
-            <h5><?= $post->date; ?></h5>
+            <h5>{{$post->date}}</h5>
             <div>
-                <?= $post->body; ?>
+                {!! $post->body !!}
             </div>
         </article>
-    <?php endforeach; ?>
+    @endforeach
 </body>
 </html>
