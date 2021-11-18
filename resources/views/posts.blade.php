@@ -8,7 +8,7 @@
                 {{$post->title}}
             </a>
         </h2>
-        <h5>{{$post->date}}</h5>
+        <x-button onClick="alertar('{{$post->title}}')">{{$post->date}}</x-button>
         <div>
             {!! $post->body !!}
         </div>
