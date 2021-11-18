@@ -1,8 +1,4 @@
-@extends('layout')
-
-@section('content')
-
-<body>
+<x-layout>
     <h1>Fernando  <strong>Publicações</strong></h1>
     <article>
         <h2>
@@ -13,6 +9,4 @@
         </div>
     </article>
     <a href="/">Voltar</a>
-</body>
-
-@endsection
+</x-layout>
