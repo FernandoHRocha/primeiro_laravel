@@ -10,23 +10,10 @@
 </head>
 <body>
     <h1>Fernando <strong>Publicações</strong></h1>
-    <article>
-        <h2><a href="/posts/my-first-post">Primeira Publicação</a></h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in deleniti reiciendis repudiandae, blanditiis culpa iure. Perferendis quo perspiciatis non similique officiis, libero voluptatibus maxime id tempora cum. Doloribus, perspiciatis!
-        </p>
-    </article>
-    <article>
-        <h2><a href="/posts/my-second-post">Segunda Publicação</a></h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in deleniti reiciendis repudiandae, blanditiis culpa iure. Perferendis quo perspiciatis non similique officiis, libero voluptatibus maxime id tempora cum. Doloribus, perspiciatis!
-        </p>
-    </article>
-    <article>
-        <h2><a href="/posts/my-third-post">Terceira Publicação</a></h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in deleniti reiciendis repudiandae, blanditiis culpa iure. Perferendis quo perspiciatis non similique officiis, libero voluptatibus maxime id tempora cum. Doloribus, perspiciatis!
-        </p>
-    </article>
+    <?php foreach ($posts as $post) : ?>
+        <article>
+            <?= $post; ?>
+        </article>
+    <?php endforeach; ?>
 </body>
 </html>
