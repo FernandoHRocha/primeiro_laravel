@@ -22,10 +22,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($id) {
+Route::get('posts/{post}', function (Post $post) {
 
     //Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
     return view('post', [
-        'post' => Post::findOrFail($id)
+        'post' => $post
     ]);
 });
