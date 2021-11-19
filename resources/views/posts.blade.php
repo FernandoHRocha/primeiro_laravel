@@ -6,11 +6,11 @@
         @foreach ($posts as $post)
         <article class="{{$loop->even ? 'impar' : 'par'}}">
             <h2>
-                <a href="/posts/<?= $post->id; ?>">
+                <a href="/posts/<?= $post->slug ?>">
                     {{$post->title}}
                 </a>
             </h2>
-            <x-button onClick="alertar('{{$post->title}}')">{{$post->created_at}}</x-button>
+            <x-button onClick="alertar('Publicado em {{$post->created_at}}.')">{{$post->category->name}}</x-button>
             <div>
                 <p>{!! $post->excerpt !!}</p>
             </div>

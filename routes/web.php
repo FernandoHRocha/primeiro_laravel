@@ -22,9 +22,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function (Post $post) {
-
-    //Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
+//Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
+Route::get('/posts/{post}', function (Post $post) {
     return view('post', [
         'post' => $post
     ]);
