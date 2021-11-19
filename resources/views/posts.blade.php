@@ -4,13 +4,13 @@
     @foreach ($posts as $post)
     <article class="{{$loop->even ? 'impar' : 'par'}}">
         <h2>
-            <a href="/posts/<?= $post->slug; ?>">
+            <a href="/posts/<?= $post->id; ?>">
                 {{$post->title}}
             </a>
         </h2>
-        <x-button onClick="alertar('{{$post->title}}')">{{$post->date}}</x-button>
+        <x-button onClick="alertar('{{$post->title}}')">{{$post->created_at}}</x-button>
         <div>
-            {!! $post->body !!}
+            {!! $post->excerpt !!}
         </div>
     </article>
     @endforeach
