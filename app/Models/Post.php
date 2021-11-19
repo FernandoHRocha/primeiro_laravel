@@ -30,8 +30,6 @@ class Post extends Model
     //Custom route key name
     //https://laravel.com/docs/8.x/routing#customizing-the-default-key-name
     public function getRouteKeyName() {
-
         return 'slug';
-
     }
 }

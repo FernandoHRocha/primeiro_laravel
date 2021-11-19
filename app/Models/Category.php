@@ -12,4 +12,12 @@ class Category extends Model
     protected $fillable = ['name','slug'];
 
     protected $guarded = ['id'];
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 }
