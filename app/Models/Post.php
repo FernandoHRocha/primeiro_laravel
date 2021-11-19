@@ -14,9 +14,16 @@ class Post extends Model
 
     //$fillable is used to make mass assignment with JSON column => value
     //this will ignore properties that are not declared in $fillable
-    protected $fillable = ['title','excerpt','body'];
+    protected $fillable = ['title','slug','excerpt','body','category_id'];
 
     //Guarded is the reverse of fillable. If fillable specifies which fields to be mass assigned, guarded specifies which fields are not mass assignable.
     //If the array are blank, you don't have control of the assignment of the models.
     protected $guarded = ['id'];
+
+    //Creating a relation with the Category table
+    public function category()
+    {
+        //hasOne, hasMany, belongsTo, belongsToMany
+        return $this->belongsTo(Category::class);
+    }
 }
