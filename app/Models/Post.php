@@ -21,10 +21,13 @@ class Post extends Model
     protected $guarded = ['id'];
 
     //Creating a relation with the Category table
-    public function category()
-    {
+    public function category() {
         //hasOne, hasMany, belongsTo, belongsToMany
         return $this->belongsTo(Category::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     //Custom route key name
