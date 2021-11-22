@@ -43,7 +43,7 @@
 
                 <div class="hidden lg:block">
                     <a href="/posts/{{ $post->slug }}"
-                    class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
+                    class="transition-colors duration-300 text-xs font-semibold bg-indigo-100 hover:bg-indigo-200 rounded-full py-2 px-8"
                     >Ler Mais</a>
                 </div>
             </footer>
