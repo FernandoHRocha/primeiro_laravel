@@ -1,4 +1,5 @@
 <x-layout>
+    <link rel="stylesheet" href="{{url('css/posts.css')}}">
     <title>Larapio</title>
     <h1>Fernando <strong>Publicações</strong></h1>
 
@@ -10,10 +11,15 @@
                     {{$post->title}}
                 </a>
             </h2>
-            <x-button onClick="alertar('Publicado em {{$post->created_at}}.')">{{$post->category->name}}</x-button>
+            <p>
+                <a href="/authors/{{ $post->author->slug }}" style="color:white;">
+                    Written with ❤ by {{ $post->author->name }}
+                </a>
+            </p>
             <div>
                 <p>{!! $post->excerpt !!}</p>
             </div>
+            <x-button onClick="alertar('Publicado em {{$post->created_at}}.')">{{$post->category->name}}</x-button>
         </article>
         @endforeach
     @else

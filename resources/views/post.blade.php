@@ -13,8 +13,10 @@
             <p>{!! $post->body !!}</p>
         </div>
         <p style="text-align:right">
-            Written with ❤ by {{ $post->user->name }}
+            <a href="/authors/{{ $post->author->slug }}" style="color:white;">
+                Written with ❤ by {{ $post->author->name }}
+            </a>
         </p>
     </article>
-    <a href="/">Voltar</a>
+    <a href="/">Página Principal</a>
 </x-layout>
