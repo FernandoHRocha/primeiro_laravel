@@ -3,6 +3,7 @@
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -17,28 +18,10 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('/', function () {
-    $posts = Post::latest('created_at');
-
-    if (request('search')) {
-        $posts
-            ->where('title','like','%' . request('search') . '%')
-            ->orWhere('body','like','%' . request('search') .'%');
-    }
-
-    return view('posts', [
-        'posts' => $posts->get(),
-        'categories' => Category::all(),
-        'authors' => User::all()
-    ]);
-})->name('home');
+Route::get('/',[PostController::class, 'index'])->name('home');
 
 //Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
-Route::get('/posts/{post}', function (Post $post) {
-    return view('post', [
-        'post' => $post
-    ]);
-});
+Route::get('/posts/{post}', [PostController::class, 'show']);
 
 Route::get('categories/{category}', function (Category $category) {
     return view('posts', [
