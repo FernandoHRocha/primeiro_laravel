@@ -17,7 +17,7 @@
             <div class="mt-8 md:mt-0">
                 <a href="/" class="text-xs font-bold uppercase">Página Inicial</a>
 
-                <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                <a href="#" class="bg-indigo-700 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Acompanhe as Novidades
                 </a>
             </div>
@@ -26,7 +26,7 @@
         {{ $slot }}
 
         <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-            <img src="/images/presenca.jpeg" alt="" class="mx-auto -mb-6" style="width: 160px; margin-bottom:20px;">
+            <img src="/images/presenca.jpeg" alt="" class="mx-auto -mb-6" style="width: 230px; margin-bottom:20px;">
             <h5 class="text-3xl">Mantenha-se atualizado com o nosso time.</h5>
             <p class="text-sm mt-3">Promessa de caixa de entrada limpa. Sem bugs.</p>
 
@@ -39,14 +39,14 @@
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
 
-                            <input id="email" type="text" placeholder="Your email address"
+                            <input id="email" type="text" placeholder="Seu endereço de email"
                                    class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         </div>
 
                         <button type="submit"
-                                class="transition-colors duration-300 bg-blue-500 hover:bg-blue-600 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
+                                class="transition-colors duration-300 bg-indigo-400 hover:bg-indigo-700 mt-4 lg:mt-0 lg:ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-8"
                         >
-                            Subscribe
+                            Acompanhar
                         </button>
                     </form>
                 </div>

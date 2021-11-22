@@ -1,9 +1,13 @@
 <header class="max-w-xl mx-auto mt-20 text-center">
-    <h1 class="text-4xl">
-        Últimas <span class="text-blue-500">Shooting House</span> News
-    </h1>
-
-    <h2 class="inline-flex items-center mt-2">Por Fernando H. Rocha<img src="/images/sh_rounded_logo.jpeg" alt="Shooting House rounded logo" style="width:100px; margin-left:20px;"></h2>
+    <div class="inline-flex">
+        <div>
+            <h1 class="text-4xl pt-4">
+                Notícias <span class="text-indigo-700">Shooting House</span>
+            </h1>
+            <h2 class="inline-flex items-center mt-2">Por Fernando H. Rocha</h2>
+        </div>
+        <img src="/images/sh_rounded_logo.jpeg" alt="Shooting House rounded logo" style="width:100px; margin-left:20px;">
+    </div>
 
     <p class="text-sm mt-14">
         Outro ano. Outra Atualização. Estamos atualizando a Shooting House com novos conteúdos.

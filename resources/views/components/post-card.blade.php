@@ -1,5 +1,7 @@
+@props(['post'])
+
 <article
-    class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
+    {{ $attributes->merge(['class'=> "transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl"]) }}>
     <div class="py-6 px-5">
         <div>
             <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">
@@ -9,7 +11,7 @@
             <header>
                 <div class="space-x-2">
                     <a href="/categories/{{ $post->category->slug }}"
-                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
+                        class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
                         style="font-size: 10px">{{ $post->category->name }}</a>
                 </div>
 
@@ -37,7 +39,7 @@
                     <img src="/images/black_scratch_logo.jpeg" style="width:56px;" alt="SH avatar" class="rounded">
                     <div class="ml-3">
                         <a href="/authors/{{ $post->author->slug }}">
-                            <h5 class="font-bold">{{ $post->author->name }}</h5>
+                            <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
                         </a>
                         <h6>Usuário do blog</h6>
                     </div>
