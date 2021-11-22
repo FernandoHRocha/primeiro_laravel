@@ -1,5 +1,26 @@
 <x-layout>
-    <link rel="stylesheet" href="{{url('css/posts.css')}}">
+
+    @include('_posts-header')
+
+
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+
+
+        <x-post-featured-card />
+
+        <div class="lg:grid lg:grid-cols-2">
+            <x-post-card />
+            <x-post-card />
+        </div>
+
+        <div class="lg:grid lg:grid-cols-3">
+            <x-post-card />
+            <x-post-card />
+            <x-post-card />
+        </div>
+    </main>
+
+    {{-- <link rel="stylesheet" href="{{url('css/posts.css')}}">
     <title>Larapio</title>
     <h1>Fernando <strong>Publicações</strong></h1>
 
@@ -25,5 +46,5 @@
     @else
         <h2>Nenhuma postagem foi encontrada.</h2>
         <p>Para começar a criar suas postagens, espere por uma futura atualização do sistema para realizar novas publicações.</p>
-    @endif
+    @endif --}}
 </x-layout>
