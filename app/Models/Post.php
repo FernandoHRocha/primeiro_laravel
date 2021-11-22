@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory; //Post::factory()->create()
 
     //https://laravel.com/docs/8.x/eloquent#mass-assignment-json-columns
     //For security, we can't make mass assignment to the models.
