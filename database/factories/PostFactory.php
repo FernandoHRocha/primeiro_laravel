@@ -14,10 +14,12 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => 1,
+            'user_id' => ($this->faker->randomDigit/10)+1,
+            'category_id' => ($this->faker->randomDigit/2.5)+1,
             'title' => $this->faker->sentence,
-            'excerpt' => $this->faker->setence,
-            'body' => $this->faker->paragraph
+            'slug' => $this->faker->slug,
+            'excerpt' => '<p>' . implode('</p><p>',$this->faker->paragraphs(2)) . '</p>',
+            'body' => '<p>' . implode('</p><p>',$this->faker->paragraphs(6)) . '</p>'
         ];
     }
 }
