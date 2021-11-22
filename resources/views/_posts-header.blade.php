@@ -1,14 +1,13 @@
 <header class="max-w-xl mx-auto mt-20 text-center">
     <h1 class="text-4xl">
-        Latest <span class="text-blue-500">Laravel From Scratch</span> News
+        Últimas <span class="text-blue-500">Shooting House</span> News
     </h1>
 
-    <h2 class="inline-flex mt-2">By Lary Laracore <img src="/images/lary-head.svg"
-                                                       alt="Head of Lary the mascot"></h2>
+    <h2 class="inline-flex items-center mt-2">Por Fernando H. Rocha<img src="/images/sh_rounded_logo.jpeg" alt="Shooting House rounded logo" style="width:100px; margin-left:20px;"></h2>
 
     <p class="text-sm mt-14">
-        Another year. Another update. We're refreshing the popular Laravel series with new content.
-        I'm going to keep you guys up to speed with what's going on!
+        Outro ano. Outra Atualização. Estamos atualizando a Shooting House com novos conteúdos.
+        Vamos manter vocês informados sobre o que está acontecendo!
     </p>
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
