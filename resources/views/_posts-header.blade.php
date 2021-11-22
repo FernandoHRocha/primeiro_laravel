@@ -38,6 +38,26 @@
         </div>
 
         <!-- Author filter -->
+        <div class="relative lg:inline-flex items-center bg-gray-100 rounded-xl">
+            <x-dropdown>
+
+                <x-slot name="trigger">
+                    <button class="py-2 pl-3 pr-9 text-sm font-semibold w-full lg:w-40 text-left flex lg:inline-flex">
+                        {{ isset($currentAuthor) ? ucwords($currentAuthor->name) : 'Autores' }}
+                        <x-icon name="arrow down" class="absolute pointer-events-none" style="right: 12px;"/>
+                    </button>
+                </x-slot>
+
+                <x-dropdown-item href='/' :active="request()->routeIs('home')">Todos</x-dropdown-item>
+
+                @foreach($authors as $author)
+                <x-dropdown-item
+                href='/authors/{{$author->slug}}'
+                :active="request()->is('authors/' . $author->slug)">{{ ucwords($author->name) }}</x-dropdown-item>
+                @endforeach
+
+            </x-dropdown>
+        </div>
         
 
         <!-- Search -->
