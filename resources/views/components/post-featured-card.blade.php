@@ -8,10 +8,7 @@
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
-                    <a href="/categories/{{ $post->category->slug }}"
-                    class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
-                    style="font-size: 10px">{{ $post->category->name }}</a>
-
+                    <x-category-buttom :category="$post->category" />
                 </div>
 
                 <div class="mt-4">
@@ -40,7 +37,7 @@
                         <a href="/authors/{{ $post->author->slug }}">
                             <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
                         </a>
-                        <h6>Usuário do blog</h6>
+                        <h6>Membro da Comuna</h6>
                     </div>
                 </div>
 
