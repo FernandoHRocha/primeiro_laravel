@@ -23,7 +23,7 @@ Route::get('/', function () {
         'posts' => Post::latest('created_at')->get(),
         'categories' => Category::all()
     ]);
-});
+})->name('home');
 
 //Return the file to be rendered, with the parameter (post) declared in the post.blade.html file
 Route::get('/posts/{post}', function (Post $post) {
@@ -38,7 +38,7 @@ Route::get('categories/{category}', function (Category $category) {
         'currentCategory' => $category,
         'categories' => Category::all()
     ]);
-});
+})->name('category');
 
 Route::get('/authors/{author:slug}', function (User $author) {
 
@@ -46,4 +46,4 @@ Route::get('/authors/{author:slug}', function (User $author) {
         'posts' => $author->posts,
         'categories' => Category::all()
     ]);
-});
+})->name('author');
