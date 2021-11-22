@@ -20,6 +20,8 @@ class Post extends Model
     //If the array are blank, you don't have control of the assignment of the models.
     protected $guarded = ['id'];
 
+    protected $with = ['category','author'];
+
     //Creating a relation with the Category table
     public function category() {
         //hasOne, hasMany, belongsTo, belongsToMany
