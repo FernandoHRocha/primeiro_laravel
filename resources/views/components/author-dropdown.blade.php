@@ -11,7 +11,7 @@
 
     @foreach($authors as $author)
     <x-dropdown-item
-    href='/?author={{$author->slug}}'
+    href="/?author={{ $author->slug }}&{{ http_build_query(request()->except('author')) }}"
     :active="request()->is('authors/' . $author->slug)">{{ ucwords($author->name) }}</x-dropdown-item>
     @endforeach
 
