@@ -20,6 +20,8 @@ class RegisterController extends Controller
             'password' => ['required', 'max:255', 'min:5']
         ]);
 
-        User::Create($attributes);
+        $user = User::Create($attributes);
+
+        return redirect('/?author='.$user['slug']);
     }
 }

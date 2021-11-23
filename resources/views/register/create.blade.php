@@ -15,19 +15,19 @@
                     <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Nome
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="text" name="name" id="name" required>
+                    <input class="border rounded-xl border-gray-400 p-2 w-full" type="text" name="name" id="name" required>
                 </div>
                 <div class="mb-6">
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Email
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
+                    <input class="border rounded-xl border-gray-400 p-2 w-full" type="email" name="email" id="email" required>
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Senha
                     </label>
-                    <input class="border border-gray-400 p-2 w-full" type="password" name="password" id="password" required>
+                    <input class="border rounded-xl border-gray-400 p-2 w-full" type="password" name="password" id="password" required>
                 </div>
                 <div class="mb-6">
                     <button type="submit" class="bg-white text-gray-900 rounded py-2 px-4 hover:bg-indigo-500 hover:text-white">Cadastrar</button>
