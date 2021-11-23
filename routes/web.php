@@ -1,11 +1,7 @@
 <?php
 
-use App\Models\Post;
-use App\Models\User;
-use App\Models\Category;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/',[PostController::class, 'index'])->name('home');
 

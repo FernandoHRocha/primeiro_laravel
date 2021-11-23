@@ -45,7 +45,7 @@
 
                 <div>
                     <a href="/posts/{{ $post->slug }}"
-                        class="transition-colors duration-300 text-xs font-semibold bg-indigo-100 hover:bg-indigo-200 rounded-full py-2 px-8"
+                        class="transition-colors duration-300 text-xs text-white font-semibold hover:bg-gray-900 bg-indigo-800 rounded-full py-2 px-8"
                     >Ler Mais</a>
                 </div>
             </footer>
