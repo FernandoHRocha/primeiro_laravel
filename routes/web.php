@@ -14,10 +14,7 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 
 Route::get('/authors/{author:slug}', function (User $author) {
 
-    return view('posts', [
-        'posts' => $author->posts,
-        'categories' => Category::all(),
-        'currentAuthor' => $author,
-        'authors' => User::all()
+    return view('post.index', [
+        'posts' => $author->posts
     ]);
 })->name('author');

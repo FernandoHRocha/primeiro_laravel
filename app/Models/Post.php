@@ -51,7 +51,6 @@ class Post extends Model
                 ->whereHas('category', fn($query) => 
                     $query
                         ->where('slug', $category)
-        );
             /*
                 ->whereExists(fn($query) =>
                     $query->from('categories')
@@ -61,6 +60,16 @@ class Post extends Model
                         ->where('categories.slug',$category)
                 );
             */
+            );
         });
+
+        $query->when($filters['author'] ?? false, function($query, $author) {
+            $query
+                ->whereHas('author', fn($query) =>
+                    $query
+                        ->where('slug',$author)
+                );
+            }
+        );
     }
 }
