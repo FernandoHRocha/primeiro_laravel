@@ -3,8 +3,8 @@
         <div>
             <h1 class="text-4xl pt-4">
                 Notícias <span class="text-indigo-700">Shooting House</span>
-            </h1>
-            <h2 class="inline-flex items-center mt-2">Por Fernando H. Rocha</h2>
+            </h1>Por
+            <h2 class="inline-flex items-center mt-2"><strong> Fernando H. Rocha</strong></h2>
         </div>
         <img src="/images/sh_rounded_logo.jpeg" alt="Shooting House rounded logo" style="width:100px; margin-left:20px;">
     </div>

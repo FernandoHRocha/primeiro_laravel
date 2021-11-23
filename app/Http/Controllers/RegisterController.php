@@ -23,6 +23,6 @@ class RegisterController extends Controller
 
         $user = User::Create($attributes);
 
-        return redirect('/?author='.$user['slug']);
+        return redirect('/?author='.$user['slug'])->with('success','Agora você é um membro da nossa comuna.');
     }
 }
