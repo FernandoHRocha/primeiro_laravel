@@ -34,7 +34,7 @@
                 <div class="flex items-center text-sm">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3">
-                        <a href="/authors/{{ $post->author->slug }}">
+                        <a href="/?author={{ $post->author->slug }}">
                             <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
                         </a>
                         <h6>Membro da Comuna</h6>

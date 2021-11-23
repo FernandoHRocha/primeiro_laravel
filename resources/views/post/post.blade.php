@@ -11,7 +11,7 @@
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
                         <img src="/images/black_scratch_logo.jpeg" style="width:56px;" class="rounded" alt="SH avatar">
-                        <a href="/authors/{{ $post->author->slug }}" class="ml-3 text-left">
+                        <a href="/?author={{ $post->author->slug }}" class="ml-3 text-left">
                             <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
                             <h6>Membro da Comuna</h6>
                         </a>
