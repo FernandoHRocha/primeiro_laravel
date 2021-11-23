@@ -7,11 +7,11 @@
         </button>
     </x-slot>
 
-    <x-dropdown-item href='/' :active="request()->routeIs('home')">Todas</x-dropdown-item>
+    <x-dropdown-item href="{{ http_build_query(request()->except('category')) != ''  ? '?'.http_build_query(request()->except('category')) : '/'}}" :active="request()->routeIs('home')">Todas</x-dropdown-item>
 
     @foreach($categories as $category)
     <x-dropdown-item
-    href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}"
+    href="{{ http_build_query(request()->except('category')) ? '/?'.http_build_query(request()->except('category')).'&category='.$category->slug : '/?category='.$category->slug }}"
     :active="request()->is('categories/' . $category->slug)">{{ ucwords($category->name) }}</x-dropdown-item>
     @endforeach
 
