@@ -42,9 +42,25 @@ class Post extends Model
 
         $query->when($filters['search'] ?? false, function($query, $search) {
             $query
-            ->where('title','like','%' . $search . '%')
-            ->orWhere('body','like','%' . $search .'%');
-            
+                ->where('title','like','%' . $search . '%')
+                ->orWhere('body','like','%' . $search .'%');
+        });
+
+        $query->when($filters['category'] ?? false, function($query, $category) {
+            $query
+                ->whereHas('category', fn($query) => 
+                    $query
+                        ->where('slug', $category)
+        );
+            /*
+                ->whereExists(fn($query) =>
+                    $query->from('categories')
+                        //whereColumn -> to search for category_id column of the posts table
+                        ->whereColumn('categories.id','posts.category_id')
+                        //where -> to search for a specific value of $category
+                        ->where('categories.slug',$category)
+                );
+            */
         });
     }
 }
