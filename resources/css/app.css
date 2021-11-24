@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-simple {
+    @apply text-gray-900 bg-indigo-100 mx-2 rounded-full text-xs font-bold uppercase py-3 px-5;
+}
+
+.btn-simple:hover {
+    @apply bg-indigo-600 text-white transition-colors duration-300;
+}

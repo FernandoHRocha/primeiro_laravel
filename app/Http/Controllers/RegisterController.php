@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class RegisterController extends Controller
 {
@@ -22,6 +21,8 @@ class RegisterController extends Controller
         ]);
 
         $user = User::Create($attributes);
+
+        auth()->login($user);
 
         return redirect('/?author='.$user['slug'])->with('success','Agora você é um membro da nossa comuna.');
     }

@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Fernando H. Rocha',
             'slug' => 'fernando_rocha',
             'email' => 'fhrlobacz@gmail.com',
-            'password' => bcrypt('123'),
+            'password' => '12345',
             'is_admin' => true
         ]);
 
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jessica C. F. Gomes',
             'slug' => 'jessica_gomes',
             'email' => 'jessica.cfg@hotmail.com',
-            'password' => bcrypt('123'),
+            'password' => '12345',
             'is_admin' => true
         ]);
 

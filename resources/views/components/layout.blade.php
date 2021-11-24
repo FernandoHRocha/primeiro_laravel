@@ -1,26 +1,42 @@
-<!doctype html lang="pt-br">
+<!doctype html>
+<html lang='pt'>
 
 <title>SH Blog</title>
+<!--
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+-->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <body style="font-family: Open Sans, sans-serif">
     <header>
-        <nav class="px-6 py-4 md:flex justify-between items-center w-full bg-white fixed t-0 z-50">
+        <nav class="px-6 py-2 md:flex justify-between items-center w-full bg-white fixed t-0 z-50">
             <div>
                 <a href="/">
                     <img src="/images/white_logo.jpeg" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
             
-            <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Página Inicial</a>
+            <div class="mt-8 md:mt-0 flex items-center">
+                @guest
+                    <a href="/register" class="btn-simple">
+                        Cadastrar
+                    </a>
+                    <a href="/login" class="btn-simple">
+                        Entrar
+                    </a>
+                    <a href="#" class="btn-simple">
+                        Acompanhe as Novidades
+                    </a>
+                @else
+                    <a class="text-xs font-bold uppercase">Logado como {{ auth()->user()->name }}</a>
+                    <a href="/logout" type='submit' class="btn-simple cursor-pointer">Desconectar</a>
+                @endguest
                 
-                <a href="#" class="bg-indigo-700 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                    Acompanhe as Novidades
-                </a>
             </div>
         </nav>
     </header>
@@ -60,3 +76,4 @@
    <x-flash />
 
 </body>
+</html>
