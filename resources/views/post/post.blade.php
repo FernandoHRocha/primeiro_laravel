@@ -49,6 +49,13 @@
                         </p>
                     </div>
                 </div>
+                <section class="col-span-8 col-start-5 mt-10">
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                </section>
             </article>
         </main>
     </section>

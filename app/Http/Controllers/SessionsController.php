@@ -19,15 +19,14 @@ class SessionsController extends Controller
             'password' => ['required', 'max:255']
         ]);
 
-        if(auth()->attempt($attributes)) {
-
-            //session fixation
-            session()->regenerate();
-
-            return redirect('/')->with('success','Bem vindo '. auth()->user()->name .'.');
+        if(!auth()->attempt($attributes)) {
+            throw ValidationException::withMessages(['login'=>'Credenciais não autorizadas.']);
         }
 
-        throw ValidationException::withMessages(['login'=>'Credenciais não autorizadas.']);
+        //session fixation
+        session()->regenerate();
+
+        return redirect('/')->with('success','Bem vindo '. auth()->user()->name .'.');
     }
 
     public function destroy() {
