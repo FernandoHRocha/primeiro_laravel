@@ -29,7 +29,7 @@
                     <a href="/login" class="btn-simple">
                         Entrar
                     </a>
-                    <a href="#" class="btn-simple">
+                    <a href="#newsletter" class="btn-simple">
                         Acompanhe as Novidades
                     </a>
                 @else
@@ -45,7 +45,7 @@
         {{ $slot }}
 
     </section>
-    <footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 m-16">
+    <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 m-16">
         <img src="/images/presenca.jpeg" alt="" class="mx-auto -mb-6" style="width: 230px; margin-bottom:20px;">
         <h5 class="text-3xl">Mantenha-se atualizado com o nosso time.</h5>
         <p class="text-sm mt-3">Promessa de caixa de entrada limpa. Sem bugs.</p>

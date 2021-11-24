@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 .btn-simple {
     @apply text-gray-900 bg-indigo-100 mx-2 rounded-full text-xs font-bold uppercase py-3 px-5;
 }

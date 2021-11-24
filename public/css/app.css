@@ -31880,6 +31880,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .btn-simple {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
