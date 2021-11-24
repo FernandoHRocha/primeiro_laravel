@@ -6,7 +6,9 @@
                     <img src="/images/illustration-1.png" alt="" class="rounded-xl">
 
                     <p class="mt-4 block text-gray-400 text-xs">
-                        Publicado <time>{{ $post->created_at->diffforHumans() }}</time>
+                        Publicado em <time>{{ $post->created_at->format('d/n/Y') }}</time>
+                        <br>
+                        {{ count($post->comments) }} participações
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">
@@ -51,11 +53,12 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <form action="#" method="POST" class="border-card">
+                    <form action="/posts/{{ $post->slug }}/comments" method="POST" class="border-card">
                         @csrf
                         <header class="w-full">
                             @guest
                                 <h2>Gostaria de participar?</h2>
+                                <button class="btn-simple mt-4 w-full">Cadastrar</button>
                             @else
                             <div class="flex flex-col w-full items-start">
                                 <div class="flex items-center">
@@ -64,6 +67,9 @@
                                 </div>
                                 <div class="p-4 rounded-xl w-full">
                                     <textarea class="w-full rounded-xl p-4 focus:outline-none focus:ring" name="body" id="body" cols="30" rows="10"></textarea>
+                                    @error('comment')
+                                        <p class="error-msg">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="flex justify-evenly w-full">
                                     <button class="btn-simple w-full" type="submit">Comentar</button>

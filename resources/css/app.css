@@ -13,3 +13,7 @@
 .border-card {
     @apply border border-indigo-100 p-6 bg-gray-100 rounded-xl;
 }
+
+.error-msg {
+    @apply text-xs font-bold text-red-700 my-2;
+}

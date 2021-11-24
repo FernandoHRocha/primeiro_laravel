@@ -9,6 +9,11 @@
             <header class="mt-8 lg:mt-0">
                 <div class="space-x-2">
                     <x-category-buttom :category="$post->category" />
+                    <a 
+                    class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
+                    style="font-size: 10px">
+                        {{ count($post->comments) }} comentários
+                    </a>
                 </div>
 
                 <div class="mt-4">
@@ -19,7 +24,7 @@
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
-                            Publicado <time>{{ $post->created_at->diffForHumans() }}</time>
+                            Publicado em <time>{{ $post->created_at->format('d/n/Y') }}</time>
                         </span>
                 </div>
             </header>
