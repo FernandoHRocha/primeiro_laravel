@@ -6,7 +6,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('ping',function() {
+Route::post('newsletter',function() {
+    
+    request()->validate([
+        'email' => ['required','email']
+    ]);
+
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
     $mailchimp->setConfig([
@@ -14,8 +19,16 @@ Route::get('ping',function() {
         'server' => 'us20'
     ]);
 
-    $response = $mailchimp->ping->get();
-    ddd($response);
+    try {
+        $response = $mailchimp->lists->addListMember('514af6fb09',[
+            'email_address' => request('email'),
+            'status' => 'subscribed'
+        ]);
+    } catch (\Exception $e) {
+        throw \Illuminate\Validation\ValidationException::withMessages(['email'=>'O e-mail informado não pode ser adicionado a nossa Newsletter.']);
+    }
+
+    return redirect('/')->with('success','Você estará por dentro de todas as nossas novidades.');
 });
 
 Route::get('/',[PostController::class, 'index'])->name('home');
