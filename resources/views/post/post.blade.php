@@ -49,6 +49,31 @@
                         </p>
                     </div>
                 </div>
+
+                <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                    <form action="#" method="POST" class="border-card">
+                        @csrf
+                        <header class="w-full">
+                            @guest
+                                <h2>Gostaria de participar?</h2>
+                            @else
+                            <div class="flex flex-col w-full items-start">
+                                <div class="flex items-center">
+                                    <img class="rounded-full border border-indigo-200 mr-4" width="80" height="80" src="https://i.pravatar.cc/80?u={{ auth()->id() }}" alt="avatar">
+                                    <h2 class="font-bold">Deixe seu comentário.</h2>
+                                </div>
+                                <div class="p-4 rounded-xl w-full">
+                                    <textarea class="w-full rounded-xl p-4 focus:outline-none focus:ring" name="body" id="body" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="flex justify-evenly w-full">
+                                    <button class="btn-simple w-full" type="submit">Comentar</button>
+                                </div>
+                            </div>
+                            @endguest
+                        </header>
+                    </form>
+                </section>
+
                 <section class="col-span-8 col-start-5 mt-10">
                     @foreach ($post->comments as $comment)
                         <x-post-comment :comment="$comment" />
