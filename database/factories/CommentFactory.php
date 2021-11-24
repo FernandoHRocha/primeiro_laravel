@@ -15,7 +15,7 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => round(($this->faker->randomDigitNotZero()+7)/8),
-            'post_id' => $this->faker->randomDigitNotZero(),
+            'post_id' => $this->faker->randomDigit(),
             'body' => $this->faker->paragraph
         ];
     }

@@ -16,7 +16,7 @@ class CreatePostTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users','id')->cascadeOnDelete();
-            $table->foreignId('category_id')->constrained('categories','id')->cascadeOnDelete();
+            $table->foreignId('category_id');
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('excerpt');

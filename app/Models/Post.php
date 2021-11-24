@@ -32,6 +32,10 @@ class Post extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
     //Custom route key name
     //https://laravel.com/docs/8.x/routing#customizing-the-default-key-name
     public function getRouteKeyName() {
