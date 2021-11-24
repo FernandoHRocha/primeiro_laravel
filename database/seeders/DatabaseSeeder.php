@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Category;
 use \App\Models\Post;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,10 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-        User::truncate();
-        Post::truncate();
-        Category::truncate();
 
         $development = Category::create([
             'name' => 'Desenvolvimento',
@@ -58,5 +55,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory(30)->create();
+        Comment::factory(200)->create();
     }
 }
