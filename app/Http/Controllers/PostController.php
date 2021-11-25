@@ -25,7 +25,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function storeComment() {
-
+    public function create() {
+        return view('post.create');
     }
 }
