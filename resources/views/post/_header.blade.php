@@ -10,8 +10,10 @@
     </div>
 
     <p class="text-sm mt-14">
-        Outro ano. Outra Atualização. Estamos atualizando a Shooting House com novos conteúdos.
-        Vamos manter vocês informados sobre o que está acontecendo!
+        Ano novo, novas atualizações, e a Shooting House continua crescendo e trazendo novos conteúdos.
+    </p>
+    <p class="text-sm">
+        Vamos manter você informados sobre o que está acontecendo!
     </p>
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">

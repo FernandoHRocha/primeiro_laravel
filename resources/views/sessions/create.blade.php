@@ -6,7 +6,7 @@
                 @csrf
                 <div class="mb-8">
                     <label class="text-xl text-center font-bold">
-                        Entrar
+                        Acesse sua Conta
                     </label>
                 </div>
                 <div class="mb-6">
@@ -31,7 +31,7 @@
                         <p class="text-red-500 text-xs my-2">{{ $message }}</p>
                     @enderror
                 <div class="mb-6">
-                    <button type="submit" class="btn-simple w-full">Cadastrar</button>
+                    <button type="submit" class="btn-simple w-full">Acessar</button>
                 </div>
             </form>
         </main>

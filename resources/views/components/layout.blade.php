@@ -60,7 +60,7 @@
                             <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                         </label>
 
-                        <input id="email" name="email" type="text" placeholder="Seu endereço de email" class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
+                        <input id="subscribe" name="subscribe" type="email" placeholder="Seu endereço de email" class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         
                     </div>
                     
@@ -69,7 +69,7 @@
                     </button>
                 </form>
             </div>
-            @error('email')
+            @error('subscribe')
                 <span class="error-msg block">{{ $message }}</span>
             @enderror
         </div>

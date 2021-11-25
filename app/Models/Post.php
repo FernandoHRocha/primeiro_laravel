@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
@@ -20,7 +21,7 @@ class Post extends Model
     //If the array are blank, you don't have control of the assignment of the models.
     protected $guarded = ['id'];
 
-    protected $with = ['category','author'];
+    protected $with = ['category','author','comments'];
 
     //Creating a relation with the Category table
     public function category() {
@@ -40,6 +41,27 @@ class Post extends Model
     //https://laravel.com/docs/8.x/routing#customizing-the-default-key-name
     public function getRouteKeyName() {
         return 'slug';
+    }
+
+    /**
+     * Retorna se o estado do post é publicado ou atualizado
+     */
+    public function getStatusAttribute() {
+        return $this->created_at == $this->updated_at ? 'Publicado' : 'Atualizado';
+    }
+
+    /**
+     * Retorna a data de criação/atualização formatada no padrão hora:minuto data/mes/ano
+     */
+    public function getPostedAttribute() {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('H:i d/n/Y');
+    }
+
+    /**
+     * Retorna a somatória de comentários que a postagem possui
+     */
+    public function getCountCommentsAttribute() {
+        return count($this->comments);
     }
 
     public function scopeFilter($query, array $filters) {

@@ -14,7 +14,7 @@
                     <a 
                     class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
                     style="font-size: 10px">
-                        {{ count($post->comments) }} comentários
+                        {{ $post->count_comments }} participações
                     </a>
                 </div>
 
@@ -26,7 +26,7 @@
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
-                        Publicado em <time>{{ $post->created_at->format('d/n/Y') }}</time>
+                        {{ $post->status }} em <time>{{ $post->posted }}</time>
                     </span>
                 </div>
             </header>

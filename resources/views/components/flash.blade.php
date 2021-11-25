@@ -9,3 +9,15 @@
     </p>
 </div>
 @endif
+
+@if (session()->has('subscribe'))
+<div>
+    <p
+    x-data="{ show: true }"
+    x-init=" setTimeout(() => show = false, 4000)"
+    x-show=" show "
+    class="bg-pink-700 bottom-0 fixed inset-x-1/3 p-2 py-6 rounded-t-2xl text-center text-white text-xl z-100">
+        {{ session('subscribe') }}
+    </p>
+</div>
+@endif

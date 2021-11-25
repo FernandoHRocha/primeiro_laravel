@@ -6,9 +6,9 @@
                     <img src="/images/illustration-1.png" alt="" class="rounded-xl">
 
                     <p class="mt-4 block text-gray-400 text-xs">
-                        Publicado em <time>{{ $post->created_at->format('d/n/Y') }}</time>
+                        Atualizado em <time>{{ $post->posted }}</time>
                         <br>
-                        {{ count($post->comments) }} participações
+                        {{ $post->count_comments }} participações
                     </p>
 
                     <div class="flex items-center lg:justify-center text-sm mt-4">

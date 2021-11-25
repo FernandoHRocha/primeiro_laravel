@@ -8,10 +8,7 @@
         <header class="mb-4">
             <h3 class="text-xl font-bold">{{ $comment->author->name }}</h3>
             <p class="text-xs">
-                Publicado em
-                <time>
-                    {{ $comment->post->created_at->format('d/n/Y') }}
-                </time>
+                {{ $comment->status }} em <time>{{ $comment->posted }}</time>
             </p>
         </header>
         <p>
