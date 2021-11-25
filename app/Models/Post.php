@@ -15,7 +15,7 @@ class Post extends Model
 
     //$fillable is used to make mass assignment with JSON column => value
     //this will ignore properties that are not declared in $fillable
-    protected $fillable = ['title','slug','excerpt','body','category_id'];
+    protected $fillable = ['user_id','title','slug','excerpt','body','category_id'];
 
     //Guarded is the reverse of fillable. If fillable specifies which fields to be mass assigned, guarded specifies which fields are not mass assignable.
     //If the array are blank, you don't have control of the assignment of the models.
@@ -62,6 +62,11 @@ class Post extends Model
      */
     public function getCountCommentsAttribute() {
         return count($this->comments);
+    }
+
+    public function setTitleAttribute($title) {
+        $this->attributes['title'] = ucwords(trim($title));
+        $this->attributes['slug'] = str_replace(' ','-',strtoLower(trim($title)));
     }
 
     public function scopeFilter($query, array $filters) {

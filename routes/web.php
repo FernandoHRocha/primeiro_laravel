@@ -29,5 +29,6 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class,'store'
 Route::post('newsletter',[NewsletterController::class,'subscribe']);
 
 Route::middleware('admin')->group(fn() => 
-    Route::get('/admin/post/create', [PostController::class,'create']),
+    Route::get('/post/create', [PostController::class,'create']),
+    Route::post('/post/create', [PostController::class,'store']),
 );
