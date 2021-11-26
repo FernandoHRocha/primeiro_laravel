@@ -37,7 +37,10 @@ class PostController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
+
+        if (request('thumbnail') != null) {
+            $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
+        }
 
         $post = Post::create($attributes);
 
@@ -45,6 +48,6 @@ class PostController extends Controller
     }
 
     public function create() {
-        return view('post.create');
+        return view('admin.create');
     }
 }

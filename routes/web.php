@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
@@ -10,14 +11,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PostController::class, 'index'])->name('home');
 
-Route::middleware('guest')->group( fn() => 
+Route::middleware('guest')->group( fn() =>
     Route::get('/register', [RegisterController::class, 'create']),
     Route::post('/register', [RegisterController::class, 'store']),
     Route::get('/login', [SessionsController::class, 'create']),
     Route::post('/login', [SessionsController::class, 'store']),
 );
 
-Route::middleware('auth')->group( fn() => 
+Route::middleware('auth')->group( fn() =>
     Route::get('/logout', [SessionsController::class, 'destroy']),
 );
 
@@ -28,7 +29,9 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class,'store'
 
 Route::post('newsletter',[NewsletterController::class,'subscribe']);
 
-Route::middleware('admin')->group(fn() => 
-    Route::get('/post/create', [PostController::class,'create']),
-    Route::post('/post/create', [PostController::class,'store']),
+Route::middleware('admin')->group(fn() =>
+    Route::get('post/create', [PostController::class,'create']),
+    Route::post('post/create', [PostController::class,'store']),
+    Route::get('dashboard',[AdminController::class,'home']),
+    Route::get('post/edit',[AdminController::class,'edit'])
 );

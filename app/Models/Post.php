@@ -64,6 +64,10 @@ class Post extends Model
         return count($this->comments);
     }
 
+    public function getThumbnailAttribute($thumbnail) {
+        return $thumbnail ? asset('/storage'.'/'.$thumbnail) : asset('/storage/thumbnails/black_scratch_logo.jpeg');
+    }
+
     public function setTitleAttribute($title) {
         $this->attributes['title'] = ucwords(trim($title));
         $this->attributes['slug'] = str_replace(' ','-',strtoLower(trim($title)));

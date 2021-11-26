@@ -46,6 +46,10 @@ class User extends Authenticatable
         return ucwords($name);
     }
 
+    public function getPostCountAttribute() {
+        return count($this->posts);
+    }
+
     public function setPasswordAttribute($password) {
         $this->attributes['password'] = bcrypt($password);
     }
