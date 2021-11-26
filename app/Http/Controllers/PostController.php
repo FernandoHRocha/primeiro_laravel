@@ -27,14 +27,17 @@ class PostController extends Controller
     }
 
     public function store(){
+
         $attributes = request()->validate([
             'title' => ['required','min:5', Rule::unique('posts','title')],
+            'thumbnail' => ['image'],
             'excerpt' => ['required','min:5'],
             'body' => ['required','min:5'],
             'category_id' => ['required', Rule::exists('categories','id')]
         ]);
 
         $attributes['user_id'] = auth()->id();
+        $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
 
         $post = Post::create($attributes);
 

@@ -1,6 +1,6 @@
 <x-layout>
     <main class="max-w-5xl w-full mx-auto mt-6 lg:mt-20 space-y-6 px-4">
-        <form method="POST" action="/post/create">
+        <form method="POST" action="/post/create" enctype="multipart/form-data">
             @csrf
             <div class="mb-6 border-card">
                 <h2 class="w-full text-right border-b-2 border-indigo-800 pb-2 mb-4">Não imponha limites à sua <strong class="text-indigo-600">Criatividade</strong> e escreva uma nova <strong class="text-indigo-600">Publicação</strong></h2>
@@ -8,6 +8,12 @@
                 <label for="title" class="block m-2 uppercase font-bold text-xs text-gray-900">Título</label>
                 <input type="text" value="{{ old('title')}}" name="title" id="title" class="border w-full p-2">
                 @error('title')
+                    <p class="error-msg">{{$message}}</p>
+                @enderror
+
+                <label for="thumbnail" class="block m-2 mt-4 uppercase font-bold text-xs text-gray-900">Thumbnail</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="border bg-white w-full p-2">
+                @error('thumbnail')
                     <p class="error-msg">{{$message}}</p>
                 @enderror
                 

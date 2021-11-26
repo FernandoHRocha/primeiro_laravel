@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function setNameAttribute($name) {
         $this->attributes['name'] = strtoLower(trim($name));
-        $this->attributes['slug'] = str_replace(' ','-',strtoLower(trim($name)));
+        $this->attributes['slug'] = str_replace('.','',str_replace(' ','-',strtoLower(trim($name))));
     }
 }

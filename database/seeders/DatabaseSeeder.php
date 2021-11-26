@@ -38,19 +38,15 @@ class DatabaseSeeder extends Seeder
             'slug' => 'entretenimento'
         ]);
 
-        $user = User::create([
+        $user = User::factory(1)->create([
             'name' => 'Fernando H. Rocha',
-            'slug' => 'fernando_rocha',
             'email' => 'fhrlobacz@gmail.com',
-            'password' => '12345',
             'is_admin' => true
         ]);
 
-        $user = User::create([
+        $user = User::factory(1)->create([
             'name' => 'Jessica C. F. Gomes',
-            'slug' => 'jessica_gomes',
             'email' => 'jessica.cfg@hotmail.com',
-            'password' => '12345',
             'is_admin' => true
         ]);
 

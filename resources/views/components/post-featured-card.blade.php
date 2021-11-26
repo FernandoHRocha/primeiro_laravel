@@ -1,8 +1,8 @@
 @props(['post'])
 <article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
-    <div class="py-6 px-5 lg:flex">
+    <div class="py-6 px-5 items-center lg:flex">
         <div class="flex-1 lg:mr-8">
-            <img src="/images/black_scratch_logo.jpeg" alt="Blog Post illustration" class="rounded-xl">
+            <img src="{{ $post->thumbnail ? asset('/storage'.'/'.$post->thumbnail) : asset('/storage/thumbnails/black_scratch_logo.jpeg') }}" alt="Blog Post illustration" class="mx-auto rounded-xl">
         </div>
 
         <div class="flex-1 flex flex-col justify-between">
@@ -37,7 +37,7 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="https://i.pravatar.cc/80?u={{ $post->author->id }}" alt="Lary avatar">
                     <div class="ml-3">
                         <a href="/?author={{ $post->author->slug }}">
                             <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
