@@ -3,9 +3,9 @@
 <article
     {{ $attributes->merge(['class'=> "transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl"]) }}>
     <div class="py-6 px-5">
-        <div>
+        <a href="{{ $post->path }}">
             <img src="{{ $post->thumbnail }}" alt="Blog Post illustration" class="rounded-xl">
-        </div>
+        </a>
 
         <div class="mt-8 flex flex-col justify-between">
             <header>
@@ -20,7 +20,7 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{ $post->slug }}">
+                        <a href="{{ $post->path }}">
                             {{ $post->title }}
                         </a>
                     </h1>

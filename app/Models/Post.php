@@ -64,8 +64,25 @@ class Post extends Model
         return count($this->comments);
     }
 
+    /**
+     * Retona o caminho para a thumbnail caso ela exista, em caso contrário retorna o caminho para uma thumbnail padrão.
+     */
     public function getThumbnailAttribute($thumbnail) {
         return $thumbnail ? asset('/storage'.'/'.$thumbnail) : asset('/storage/thumbnails/black_scratch_logo.jpeg');
+    }
+
+    /**
+     * Retorna o caminho para acesso a publicação
+     */
+    public function getPathAttribute() {
+        return '/posts/'.$this->slug;
+    }
+
+    /**
+     * Retorna o caminho para edição da publicação
+     */
+    public function getEditPathAttribute() {
+        return '/post/'.$this->slug.'/edit';
     }
 
     public function setTitleAttribute($title) {

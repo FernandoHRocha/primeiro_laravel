@@ -1,9 +1,9 @@
 @props(['post'])
 <article class="transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl">
     <div class="py-6 px-5 items-center lg:flex">
-        <div class="flex-1 lg:mr-8">
+        <a class="flex-1 lg:mr-8" href="{{ $post->path }}">
             <img src="{{ $post->thumbnail }}" alt="Blog Post illustration" class="mx-auto rounded-xl">
-        </div>
+        </a>
 
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-8 lg:mt-0">
@@ -18,7 +18,7 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{ $post->slug }}">
+                        <a href="{{ $post->path }}">
                             {{ $post->title }}
                         </a>
                     </h1>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="hidden lg:block">
-                    <a href="/posts/{{ $post->slug }}"
+                    <a href="{{ $post->path }}"
                     class="transition-colors duration-300 text-xs font-semibold text-white hover:bg-gray-900 bg-indigo-800 rounded-full py-2 px-8"
                     >Ler Mais</a>
                 </div>

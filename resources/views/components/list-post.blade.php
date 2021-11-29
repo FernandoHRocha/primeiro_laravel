@@ -9,7 +9,7 @@
             {{$post->title}}
           </div>
           <div class="text-sm text-gray-500">
-            {{$post->posted}}
+            {{$post->category->name}}
           </div>
         </div>
       </div>
@@ -24,6 +24,13 @@
       </span>
     </td>
     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-      <a href="#" class="text-green-600 hover:text-green-700">Edit</a>
+      <a href="{{ $post->edit_path }}" class="text-green-600 hover:text-green-700">Editar</a>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+      <form action="/post/{{ $post->slug }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="text-red-600 hover:text-red-700">Deletar</button>
+      </form>
     </td>
   </tr>

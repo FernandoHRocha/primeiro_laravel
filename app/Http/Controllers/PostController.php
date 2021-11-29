@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index() {
 
         return view('post.index', [
-            'posts' => Post::latest('created_at')->filter(request(['search','category','author']))->simplePaginate(6)->withQueryString(),
+            'posts' => Post::latest('updated_at')->filter(request(['search','category','author']))->simplePaginate(6)->withQueryString(),
             'authors' => User::all()
         ]);
     }
@@ -24,30 +24,5 @@ class PostController extends Controller
         return view('post.post', [
             'post' => $post
         ]);
-    }
-
-    public function store(){
-
-        $attributes = request()->validate([
-            'title' => ['required','min:5', Rule::unique('posts','title')],
-            'thumbnail' => ['image'],
-            'excerpt' => ['required','min:5'],
-            'body' => ['required','min:5'],
-            'category_id' => ['required', Rule::exists('categories','id')]
-        ]);
-
-        $attributes['user_id'] = auth()->id();
-
-        if (request('thumbnail') != null) {
-            $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
-        }
-
-        $post = Post::create($attributes);
-
-        return redirect('/posts' . '/' . $post->slug)->with('success','Parabéns, sua nova publicação está pronta.');
-    }
-
-    public function create() {
-        return view('admin.create');
     }
 }
