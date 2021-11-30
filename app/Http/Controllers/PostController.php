@@ -14,6 +14,8 @@ class PostController extends Controller
 
     public function index() {
 
+        //dd(request('author'));
+
         return view('post.index', [
             'posts' => Post::latest('updated_at')->filter(request(['search','category','author']))->simplePaginate(6)->withQueryString(),
             'authors' => User::all()

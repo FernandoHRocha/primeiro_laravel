@@ -7,12 +7,12 @@
         </button>
     </x-slot>
 
-    <x-dropdown-item href="{{ http_build_query(request()->except('author')) != ''  ? '?'.http_build_query(request()->except(['author','page'])) : '/'}}" :active="request()->routeIs('home')">Todos</x-dropdown-item>
+    <x-dropdown-item href="{{ http_build_query(request()->except('author')) != ''  ? '?'.http_build_query(request()->except(['author','page'])) : '/'}}" :active="!request('author')">Todos</x-dropdown-item>
 
     @foreach($authors as $author)
     <x-dropdown-item
     href="{{ http_build_query(request()->except('author')) ? '/?'.http_build_query(request()->except(['author','page'])).'&author='.$author->slug : '/?author='.$author->slug }}"
-    :active="request()->is('authors/' . $author->slug)">{{ ucwords($author->name) }}</x-dropdown-item>
+    :active="request('author') == $author->slug">{{ ucwords($author->name) }}</x-dropdown-item>
     @endforeach
 
 </x-dropdown>
