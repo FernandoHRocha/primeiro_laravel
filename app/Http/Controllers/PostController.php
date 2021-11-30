@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -22,7 +23,8 @@ class PostController extends Controller
     public function show(Post $post) {
 
         return view('post.post', [
-            'post' => $post
+            'post' => $post,
+            'comments' => Comment::latest('updated_at')->with('author')->where('post_id',$post->id)->get()
         ]);
     }
 }

@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Validation\Rule;
+use App\Models\Category;
+use App\Models\Comment;
 
 class AdminController extends Controller
 {
-    public function home() {
-        return view('admin.home');
+    public function index() {
+        return view('admin.home',[
+            'posts' => Post::where('user_id',auth()->user()->id)->get(),
+            'categories' => Category::get(),
+            'comments' => Comment::where('user_id',auth()->user()->id)->count()
+        ]);
     }
 
     public function list() {

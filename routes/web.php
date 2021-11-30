@@ -29,12 +29,13 @@ Route::post('posts/{post:slug}/comments', [PostCommentsController::class,'store'
 
 Route::post('newsletter',[NewsletterController::class,'subscribe']);
 
-Route::middleware('admin')->group(fn() =>
-    Route::get('post/create', [AdminController::class,'create']),
+Route::middleware('can:admin')->group(fn() =>
+    Route::resource('post', AdminController::class)
+    /*Route::get('dashboard',[AdminController::class,'home']),
     Route::post('post/create', [AdminController::class,'store']),
-    Route::get('dashboard',[AdminController::class,'home']),
-    Route::get('post/list',[AdminController::class,'list']),
+    Route::get('post/create', [AdminController::class,'create']),
     Route::get('post/{post}/edit',[AdminController::class,'edit']),
     Route::patch('post/{post}',[AdminController::class,'update']),
-    Route::delete('post/{post}',[AdminController::class,'destroy'])
+    Route::delete('post/{post}',[AdminController::class,'destroy']),
+    Route::get('post/list',[AdminController::class,'list']),*/
 );
