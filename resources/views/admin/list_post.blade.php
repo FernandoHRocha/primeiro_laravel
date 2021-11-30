@@ -19,7 +19,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach(( auth()->user()->posts ) as $post)
+                    @foreach( $posts as $post)
                         @include('components.list-post', ['post' => $post])
                     @endforeach
                 </tbody>

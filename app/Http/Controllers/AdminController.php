@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function list() {
         return view('admin.list_post', [
-            'posts' => auth()->user()->posts()->latest('created_at')
+            'posts' => Post::with('author')->where('user_id',auth()->user()->id)->orderBy('updated_at','DESC')->get()
         ]);
     }
 
