@@ -14,7 +14,7 @@
 
                 <div class="flex mt-6">
                     <x-form.input name="thumbnail" type="file" :value=" old('thumbnail', $post->thumbnail) "/>
-                    <img width="100" src="{{ $post->thumbnail }}" alt="post thumbnail" class="flex-2 mx-auto rounded-xl">
+                    <img src="{{ $post->thumbnail }}" alt="post thumbnail" class="flex-2 max-w-xs mx-auto rounded-xl">
                 </div>
 
                 

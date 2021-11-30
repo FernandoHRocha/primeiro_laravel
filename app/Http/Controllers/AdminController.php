@@ -23,23 +23,15 @@ class AdminController extends Controller
     }
 
     public function store() {
-        $attributes = request()->validate(
-            [
-                'title'=>['required','min:5', Rule::unique('posts','title')],
-                'thumbnail'=>['image'],
-                'excerpt'=>['required','min:5'],
-                'body'=>['required','min:5'],
-                'category_id'=>['required', Rule::exists('categories','id')]
-            ]
-        );
 
-        $attributes['user_id'] = auth()->id();
-
-        if(request('thumbnail') != null) {
-            $attributes['thumbnail']=request()->file('thumbnail')->store('thumbnails');
-        }
-
-        $post = Post::create($attributes);
+        $post = Post::create(
+            array_merge(
+                $this->validatePost(),[
+                    'user_id' => auth()->user()->id,
+                    'thumbnail' => request()->file('thumbnail')?->store('thumbnails')
+                    ]
+                )
+            );
 
         return redirect($post->path)->with('success','Sua nova publicação está pronta. Olha como ficou.');
     }
@@ -50,24 +42,15 @@ class AdminController extends Controller
 
     public function update(Post $post) {
 
-        $attributes = request()->validate(
-            [
-                'title'=>['required','min:5', Rule::unique('posts','title')->ignore($post->id)],
-                'thumbnail'=>['image'],
-                'excerpt'=>['required','min:5'],
-                'body'=>['required','min:5'],
-                'category_id'=>['required', Rule::exists('categories','id')]
-            ]
+        $post->update(
+            array_merge(
+                $this->validatePost($post),
+                [
+                    'thumbnail'=>request()->file('thumbnail')?->store('thumbnails')
+                ]
+            )
         );
-
-        if(isset($attributes['thumbnail'])) {
-            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumnails');
-        }
-
-        $post->update($attributes);
-
         return redirect($post->path)->with('success','Sua postagem foi modificada com sucesso.');
-
     }
 
     public function destroy(Post $post) {
@@ -75,5 +58,16 @@ class AdminController extends Controller
         $post->delete();
 
         return back()->with('success','A postagem foi excluida com sucesso.');
+    }
+
+    protected function validatePost(?Post $post = null): array {
+
+        return request()->validate([
+            'title'=>['required', 'min:5', Rule::unique('posts','title')->ignore($post)],
+            'thumbnail'=> ['image'],
+            'excerpt'=>['required','min:5'],
+            'body'=>['required'],
+            'category_id'=>['required', Rule::exists('categories','id')]
+        ]);
     }
 }
