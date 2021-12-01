@@ -38,7 +38,7 @@
                             <button class="btn-simple text-xs font-bold uppercase">Logado como {{ auth()->user()->name }}</button>
                         </x-slot>
                         @can('admin')
-                            <x-dropdown-item href="/dashboard" :active="request()->is('dashboard')" >Dashboard</x-dropdown-item>
+                            <x-dropdown-item href="/post" :active="request()->is('post')" >Dashboard</x-dropdown-item>
                             <x-dropdown-item href="/post/create" :active="request()->is('post/create')" >Publicar</x-dropdown-item>
                         @endcan
                         <x-dropdown-item href="/logout">Desconectar</x-dropdown-item>

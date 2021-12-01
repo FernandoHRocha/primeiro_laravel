@@ -14,6 +14,11 @@
                     style="font-size: 10px">
                         {{ $post->count_comments }} participações
                     </a>
+                    <a
+                    class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
+                    style="font-size: 10px">
+                        {{ $post->views }} vizualizações
+                    </a>
                 </div>
 
                 <div class="mt-4">

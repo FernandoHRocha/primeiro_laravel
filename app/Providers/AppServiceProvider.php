@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Schema;
 use MailchimpMarketing\ApiClient;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use App\Observers\PostCommentObserver;
+use App\Models\Comment;
 
 class AppServiceProvider extends ServiceProvider
 {

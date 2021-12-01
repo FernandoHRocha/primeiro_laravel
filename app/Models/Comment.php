@@ -12,6 +12,8 @@ class Comment extends Model
 
     protected $guarded = [];
 
+    protected $touches = ['post'];
+
     public function post() {
         return $this->belongsTo(Post::class,'post_id');
     }

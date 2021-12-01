@@ -8,8 +8,8 @@
             <aside class="w-48 text-right">
                 <h4 class="font-semibold p-4 mb-4">Opções</h4>
                 <ul>
-                    <li class="py-4 border-b border-indigo-100 pr-4 {{request()->is('dashboard') ? 'bg-indigo-200' : ''}} hover:bg-indigo-200">
-                        <a href="/dashboard">Dashboard</a>
+                    <li class="py-4 border-b border-indigo-100 pr-4 {{request()->is('post') ? 'bg-indigo-200' : ''}} hover:bg-indigo-200">
+                        <a href="/post">Dashboard</a>
                     </li>
                     <li class="py-4 border-b border-indigo-100 pr-4 {{request()->is('post/edit') ? 'bg-indigo-200' : ''}} hover:bg-indigo-200">
                         <a href="/post/list">Ver Publicações</a>

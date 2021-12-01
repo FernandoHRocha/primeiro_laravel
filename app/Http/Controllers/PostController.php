@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Validation\Rule;
 use App\Models\Comment;
+use App\Events\PostEvent;
 
 class PostController extends Controller
 {
@@ -23,6 +24,8 @@ class PostController extends Controller
     }
 
     public function show(Post $post) {
+
+        PostEvent::dispatch($post);
 
         return view('post.post', [
             'post' => $post,

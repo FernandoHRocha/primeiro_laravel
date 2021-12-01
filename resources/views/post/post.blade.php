@@ -37,6 +37,11 @@
                         </a>
 
                         <div class="space-x-2">
+                            <a 
+                            class="px-3 py-1 border border-indigo-400 rounded-full text-indigo-400 text-xs uppercase font-semibold"
+                            style="font-size: 10px">
+                                {{ $post->views }} visualizações
+                            </a>
                             <x-category-buttom :category="$post->category" />
                         </div>
                     </div>
@@ -57,8 +62,12 @@
                         @csrf
                         <header class="w-full">
                             @guest
-                                <h2>Gostaria de participar?</h2>
-                                <button class="btn-simple mt-4 w-full">Cadastrar</button>
+                                <h2 class="my-2">Gostaria de participar?</h2>
+                                <div class="flex flex-row text-center">
+                                    <a href="/login" class="btn-simple w-full">Entrar</a>
+                                    <a href="/register" class="btn-simple w-full">Cadastrar</a>
+                                </div>
+
                             @else
                             <div class="flex flex-col w-full items-start">
                                 <div class="flex items-center">

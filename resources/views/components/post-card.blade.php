@@ -26,7 +26,7 @@
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
-                        {{ $post->status }} em <time>{{ $post->posted }}</time>
+                        {{ $post->status }} em <time>{{ $post->posted }}</time> - {{ $post->views }} visualizações
                     </span>
                 </div>
             </header>

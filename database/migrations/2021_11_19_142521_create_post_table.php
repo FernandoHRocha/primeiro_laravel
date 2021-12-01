@@ -22,6 +22,7 @@ class CreatePostTable extends Migration
             $table->text('excerpt');
             $table->text('body');
             $table->string('thumbnail')->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });
