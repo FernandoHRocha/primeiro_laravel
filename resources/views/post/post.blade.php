@@ -5,19 +5,39 @@
                 <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
                     <img src="{{ $post->thumbnail }}" alt="" class="rounded-xl">
 
-                    <p class="mt-4 block text-gray-400 text-xs">
+                    <div class="bg-indigo-100 block mt-4 p-4 rounded-t-xl text-gray-800 text-sm">
+                        <div class="flex items-center lg:justify-center text-sm my-4">
+                            <img src="https://i.pravatar.cc/80?u={{ $post->author->id }}" style="width:56px;" class="rounded" alt="SH avatar">
+                            <a href="/?author={{ $post->author->slug }}" class="ml-3 text-left">
+                                <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
+                                <h6>Membro da Comuna</h6>
+                            </a>
+                        </div>
                         Atualizado em <time>{{ $post->posted }}</time>
                         <br>
                         {{ $post->count_comments }} participações
-                    </p>
-
-                    <div class="flex items-center lg:justify-center text-sm mt-4">
-                        <img src="https://i.pravatar.cc/80?u={{ $post->author->id }}" style="width:56px;" class="rounded" alt="SH avatar">
-                        <a href="/?author={{ $post->author->slug }}" class="ml-3 text-left">
-                            <h5 class="font-bold text-indigo-700">{{ $post->author->name }}</h5>
-                            <h6>Membro da Comuna</h6>
-                        </a>
+                        <br>
                     </div>
+                        @can('post-owner',$post)
+                        <form action="/post/{{ $post->slug }}" method="POST" class="flex w-full">
+                            @csrf
+                            @method('DELETE')
+                            <a href="{{ $post->edit_path }}" class="bg-indigo-100 flex flex-1 flex-col hover:bg-indigo-800 hover:text-white items-center p-2 rounded-b-3xl">
+                                Editar
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                                </svg>
+                            </a>
+                            <button type='submit' class="bg-indigo-100 flex flex-1 flex-col hover:bg-indigo-800 hover:text-white items-center p-2 rounded-b-3xl">
+                                Excluir
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                                </svg>
+                            </button>
+                        </form>
+                        @endcan
+
+                    
                 </div>
 
                 <div class="col-span-8">
