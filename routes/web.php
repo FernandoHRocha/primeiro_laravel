@@ -43,3 +43,4 @@ Route::middleware('can:admin')->group(fn() =>
 Route::get('api/authors', [ApiController::class,'authors']);
 Route::get('api/users', [ApiController::class, 'users']);
 Route::get('api/posts', [ApiController::class, 'posts']);
+Route::get('api/topposts', [ApiController::class, 'topPosts']);
