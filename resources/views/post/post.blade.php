@@ -18,7 +18,7 @@
                         {{ $post->count_comments }} participações
                         <br>
                     </div>
-                        @can('post-owner',$post)
+                        @can('post-owner' , $post)
                         <form action="/post/{{ $post->slug }}" method="POST" class="flex w-full">
                             @csrf
                             @method('DELETE')

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\UserCast;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,7 +36,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'id' => 'integer',
+        'created_at' => 'datetime:d/n/Y H:i',
+        'updated_at' => 'datetime:d/n/Y H:i',
+        'email_verified_at' => 'datetime:d/m/Y H:i'
     ];
 
     public function posts() {

@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,3 +39,7 @@ Route::middleware('can:admin')->group(fn() =>
     Route::delete('post/{post}',[AdminController::class,'destroy']),
     Route::get('post/list',[AdminController::class,'list'])
 );
+
+Route::get('api/authors', [ApiController::class,'authors']);
+Route::get('api/users', [ApiController::class, 'users']);
+Route::get('api/posts', [ApiController::class, 'posts']);
